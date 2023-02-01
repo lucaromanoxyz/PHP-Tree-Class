@@ -4,7 +4,7 @@
  *
  * @author Luca Romano <romano.luca@hotmail.it>
  * @package PHPTreeClass
- * @version 1.0.0
+ * @version 1.0.1
  * @access public
  * @license Creative Commons Zero v1.0 Universal
  * @see https://github.com/lucaromanoxyz/php-tree-class
@@ -80,6 +80,11 @@ class PHPTreeClass {
 	 * @return int
 	 */
 	public static function getCategoriesDepth( array $items_list, string $children_key = "children", int $initial_depth = 1 ): int {
+		// return 0 if $items_list is an empty array
+		if(count($items_list) === 0) {
+			return 0;
+		}
+
 		// set the depth of the current level
 		$level_depth = 1;
 		// browse all items_list
